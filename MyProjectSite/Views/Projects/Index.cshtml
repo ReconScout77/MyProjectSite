@@ -1,0 +1,23 @@
+﻿@model IEnumerable<MyProjectSite.Models.Project>
+@{
+    ViewData["Title"] = "Project Index";
+}
+
+<div class="card-deck">
+    @foreach (var project in Model)
+    {
+        <div class="card text-center">
+            <div class="card-block">
+                <h4 class="card-title"><a href=@project.Html_Url>@Html.DisplayFor(x => project.Name)</a></h4>
+                <div class="card-footer">
+    			    <div class="d-flex justify-content-between">
+                        <div class="p-2 card-text">@Html.DisplayFor(x => project.Language)</div>
+                        <div class="p-2 card-text">Stars (@Html.DisplayFor(x => project.Stargazers_Count))</div>
+                    </div>
+				</div>
+            </div>
+        </div>
+    }
+</div>
+
+@Html.ActionLink("See More", "AllProjects", "Projects")
