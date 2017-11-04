@@ -15,7 +15,8 @@ namespace MyProjectSite.Controllers
 
         public IActionResult About()
         {
-            return View();
+            var Model = AboutMe.GetAbout();
+            return View("About", Model);
         }
     }
 }
